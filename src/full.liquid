@@ -1,17 +1,17 @@
 <div class="layout layout--stretch gap--large">
   {% if events.size > 0 %}
   <div class="flex flex--col flex--stretch gap--small flex--center-y">
-    <img src="{{ events.first.performers.first.image }}" class="image image-dither" height="300" />
+    <img src="{{ events.first.performers.first.image }}" class="image image-dither" height="280" />
     <div class="text--center">
-      <div><span class="title title--medium my--3">{{ events.first.short_title }}</span></div>
+      <div><span class="title title--medium my--2 clamp--2 clamp--nicely">{{ events.first.short_title }}</span></div>
       <div><span class="label">{{ events.first.datetime_local | date: '%-I:%M %p %A, %B %-d, %Y' }}</span></div>
       <div><span class="description">{{ events.first.venue.name }}</span></div>
       <div><span class="description">{{ events.first.venue.display_location }}</span></div>
     </div>
   </div>
   {% if events.size > 1 %}
-  <div class="flex flex--col flex--stretch">
-    <div><span class="label label--small label--underline">Upcoming Dates</span></div>
+  <div class="flex flex--col flex--stretch w--96">
+    <div><span class="label label--small label--underline pl--1">Upcoming Dates</span></div>
     <table class="table table--condensed">
     {% for event in events limit: 6, offset: 1 %}
       <tr>
@@ -37,5 +37,5 @@
 <div class="title_bar">
   <img class="image image-stroke" src="data:image/svg+xml;base64,{{ seatgeek_logo | base64_encode }}" />
   <span class="title">Upcoming Events</span>
-  <span class="instance">{{ trmnl.plugin_settings.instance_name }}</span>
+  <span class="instance">{{ trmnl.plugin_settings.custom_fields_values.seatgeek_query }}</span>
 </div>
