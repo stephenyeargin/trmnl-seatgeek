@@ -7,12 +7,15 @@ watch:
   - src
 
 # values of custom fields (defined in src/settings.yml)
-custom_fields: {}
+custom_fields: {
+  seatgeek_client_id: "{{ env.SEATGEEK_CLIENT_ID }}",
+  seatgeek_query: Nashville Sounds
+}
 
 # override variables
 variables:
   trmnl: {
     plugin_settings: {
-      instance_name: 'My Instance'
+      instance_name: 'SeatGeek'
     }
   }

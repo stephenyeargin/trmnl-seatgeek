@@ -1,19 +1,24 @@
-<div class="view">
-  <div class="layout layout--row layout--top">
-    <div class="grid grid--cols-1 gap--medium">
-      <div class="item">
-        <div class="meta"></div>
-        <div class="content">
-          <div class="label label--medium">Quadrant</div>
-          <div class="description">Replace me with your content!</div>
-        </div>
-      </div>
+<div class="layout layout--col gap--large">
+  {% if events.size > 0 %}
+  <div class="">
+    <div class="text--center">
+      <div><span class="title title--medium my--3">{{ events.first.short_title }}</span></div>
+      <div><span class="label">{{ events.first.datetime_local | date: '%-I:%M %p %A, %B %-d, %Y' }}</span></div>
+      <div><span class="description">{{ events.first.venue.name }}</span></div>
+      <div><span class="description">{{ events.first.venue.display_location }}</span></div>
     </div>
   </div>
 
-  <div class="title_bar">
-    <img class="image" src="https://usetrmnl.com/images/brand/glyphs/glyph--black.svg" />
-    <span class="title">Plugin Template</span>
-    <span class="instance">{{ trmnl.plugin_settings.instance_name }}</span>
-  </div>
+  {% else %}
+    <div class="text--center py--10">
+      <div><span class="title title--large clamp--none">No Scheduled Events</span></div>
+      <div><span class="description">Query: {{ trmnl.plugin_settings.custom_fields_values.seatgeek_query }}</span></div>
+    </div>
+  {% endif %}
+</div>
+
+<div class="title_bar">
+  <img class="image image-stroke" src="data:image/svg+xml;base64,{{ seatgeek_logo | base64_encode }}" />
+  <span class="title">Upcoming Events</span>
+  <span class="instance">{{ trmnl.plugin_settings.instance_name }}</span>
 </div>

@@ -1,28 +1,30 @@
-#
-# Changes to this file will be overwritten by `trmnlp pull`.
-#
-# Docs: https://help.usetrmnl.com/en/articles/10542599-importing-and-exporting-private-plugins#h_581fb988f0
-#
 ---
 strategy: polling
 no_screen_padding: 'no'
 dark_mode: 'no'
 static_data: ''
 polling_verb: get
-polling_url: 'https://api.vercel.app/blog'
-polling_headers: 'content-type=application/json'
-name: Plugin Template
-refresh_interval: 1440
+polling_url: https://api.seatgeek.com/events?q={{ seatgeek_query }}&client_id={{ seatgeek_client_id }}
+polling_headers: 'Authorization: Basic {{ seatgeek_client_id }}'
+polling_body: 
+id: 120686
 custom_fields:
 - keyname: author_bio
   name: About This Plugin
   field_type: author_bio
-  description: This is template text you should probably update 😁
-  github_url: https://github.com/
-  learn_more_url: https://usetrmnl.com/
-  email_address: email@example.com
-- keyname: example_string
+  description: Show upcoming events for your favorite artist or team.
+  github_url: https://github.com/stephenyeargin/trmnl-seatgeek
+  learn_more_url: https://seatgeek.com
+  email_address: stephen@yearg.in
+- keyname: seatgeek_client_id
+  field_type: password
+  name: SeatGeek Client ID
+  description: Required for authentication with SeatGeek, <a href="https://seatgeek.com/account/develop" class="underline">Register an Application</a> to obtain.
+  placeholder: ABCDEFGHIJKlmnop1234567qrst
+- keyname: seatgeek_query
   field_type: string
-  name: A Configurable String
-  description: Save some data here for use in URLs or controlling the display
-  placeholder: An Example Value
+  name: Event Search
+  description: Enter the name or slug of the artist or team that you want to display.
+  placeholder: Nashville Sounds
+name: SeatGeek
+refresh_interval: 1440
