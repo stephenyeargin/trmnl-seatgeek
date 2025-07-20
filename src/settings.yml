@@ -4,7 +4,9 @@ no_screen_padding: 'no'
 dark_mode: 'no'
 static_data: ''
 polling_verb: get
-polling_url: https://api.seatgeek.com/events?q={{ seatgeek_query }}&client_id={{ seatgeek_client_id }}
+polling_url: |
+  https://api.seatgeek.com/events?q={{ seatgeek_query }}&client_id={{ seatgeek_client_id }}
+  https://api.seatgeek.com/events?venue.slug={{ seatgeek_query | replace: ' ', '-' | downcase }}&client_id={{ seatgeek_client_id }}
 polling_headers: 'Authorization: Basic {{ seatgeek_client_id }}'
 polling_body: 
 id: 120686
@@ -24,7 +26,15 @@ custom_fields:
 - keyname: seatgeek_query
   field_type: string
   name: Event Search
-  description: Enter the name or slug of the artist or team that you want to display.
+  description: Artist/team or venue name
   placeholder: Nashville Sounds
+- keyname: seatgeek_mode
+  field_type: select
+  name: Search Mode
+  description: Select whether to search on artist/team or venue
+  default: performer
+  options:
+  - Artist or Team: performer
+  - Venue: venue
 name: SeatGeek
 refresh_interval: 1440

@@ -1,3 +1,9 @@
+{% assign mode = trmnl.plugin_settings.custom_fields_values.seatgeek_mode %}
+{% assign events = IDX_0.events | default: [] %}
+{% if mode == 'venue' %}
+  {% assign events = IDX_1.events | default: [] %}
+{% endif %}
+
 {% assign top_event = events.first %}
 
 <style>
