@@ -1,7 +1,7 @@
 <div class="layout layout--stretch gap--large">
   {% if events.size > 0 %}
   <div class="flex flex--col flex--stretch gap--small flex--center-y">
-    <img src="{{ events.first.performers.first.image }}" class="image image-dither" height="280" />
+    <img src="{{ events.first.performers.first.image }}" class="image image-dither" height="280" style="filter: grayscale(1) contrast(1.2) brightness(1.1) saturate(0.8);" />
     <div class="text--center">
       <div><span class="title title--medium my--2 clamp--2 clamp--nicely">{{ events.first.short_title }}</span></div>
       <div><span class="label">{{ events.first.datetime_local | date: '%-I:%M %p %A, %B %-d, %Y' }}</span></div>
