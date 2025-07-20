@@ -29,7 +29,7 @@ custom_fields:
   description: Artist/team or venue name
   placeholder: Nashville Sounds
 - keyname: seatgeek_mode
-  field_type: option
+  field_type: select
   name: Search Mode
   description: Select whether to search on artist/team or venue
   default: performer

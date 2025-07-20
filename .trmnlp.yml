@@ -9,10 +9,10 @@ watch:
 # values of custom fields (defined in src/settings.yml)
 custom_fields: {
   seatgeek_client_id: "{{ env.SEATGEEK_CLIENT_ID }}",
-  seatgeek_query: Nashville Sounds,
-  seatgeek_mode: performer
-  # seatgeek_query: Bridgestone Arena,
-  # seatgeek_mode: venue
+  # seatgeek_query: Nashville Sounds,
+  # seatgeek_mode: performer
+  seatgeek_query: Bridgestone Arena,
+  seatgeek_mode: venue
 }
 
 # override variables
