@@ -4,11 +4,21 @@
 
 ![promo](assets/promo.png)
 
-## Screenshot
+## Screenshots
 
+### Venue
 ![screenshot](assets/screenshot.png)
 
-![screenshot-2](assets/screenshot-2.png)
+| Half Horizontal | Half Vertical | Quadrant |
+| ---------- | ---------- | ---------- |
+| ![screenshot](assets/screenshot-venue-half-horizontal.png) | ![screenshot](assets/screenshot-venue-half-vertical.png) | ![screenshot](assets/screenshot-venue-quadrant.png) |
+
+### Performer
+![screenshot](assets/screenshot-performer-full.png)
+
+| Half Horizontal | Half Vertical | Quadrant |
+| ---------- | ---------- | ---------- |
+| ![screenshot](assets/screenshot-performer-half-horizontal.png) | ![screenshot](assets/screenshot-performer-half-vertical.png) | ![screenshot](assets/screenshot-performer-quadrant.png)
 
 ## Development
 
