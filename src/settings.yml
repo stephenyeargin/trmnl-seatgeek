@@ -5,8 +5,8 @@ dark_mode: 'no'
 static_data: ''
 polling_verb: get
 polling_url: |
-  https://api.seatgeek.com/events?q={{ seatgeek_query }}&client_id={{ seatgeek_client_id }}
-  https://api.seatgeek.com/events?venue.slug={{ seatgeek_query | replace: ' ', '-' | downcase }}&client_id={{ seatgeek_client_id }}
+  https://api.seatgeek.com/events?per_page=7&q={{ seatgeek_query }}&client_id={{ seatgeek_client_id }}
+  https://api.seatgeek.com/events?per_page=7&venue.slug={{ seatgeek_query | replace: ' ', '-' | downcase }}&client_id={{ seatgeek_client_id }}
 polling_headers: 'Authorization: Basic {{ seatgeek_client_id }}'
 polling_body: 
 id: 120686
