@@ -1,25 +1,27 @@
-<div class="layout layout--stretch gap--large">
+<div class="layout layout--stretch gap--large lg:gap--xlarge">
   {% if events.size > 0 %}
-  <div class="flex flex--col flex--stretch gap--small flex--center-y">
-    <img src="{{ events.first.performers.first.image }}" class="image image-dither" height="280" style="filter: grayscale(1) contrast(1.2) brightness(1.1) saturate(0.8);" />
+  <div class="w--full">
+    <img src="{{ events.first.performers.first.image }}" class="image image-dither h--72 lg:h--96" style="filter: grayscale(1) contrast(1.2) brightness(1.1) saturate(0.8);" />
     <div class="text--center">
-      <div><span class="title title--medium my--2 clamp--2 clamp--nicely">{{ events.first.short_title }}</span></div>
+      <div class="py--3 lg:py--6"><span class="title title--base lg:title--large lg:my--6" data-clamp="2" data-clamp-lg="0">{{ events.first.short_title }}</span></div>
       <div><span class="label">{{ events.first.datetime_local | date: '%-I:%M %p %A, %B %-d, %Y' }}</span></div>
-      <div><span class="description">{{ events.first.venue.name }}</span></div>
-      <div><span class="description">{{ events.first.venue.display_location }}</span></div>
+      <div><span class="description description--base lg:description--large">{{ events.first.venue.name }}</span></div>
+      <div><span class="description description--base lg:description--large">{{ events.first.venue.display_location }}</span></div>
     </div>
   </div>
   {% if events.size > 1 %}
-  <div class="flex flex--col flex--stretch-x w--96 stretch-y">
-    <div><span class="label label--small label--underline pl--1">Upcoming Dates</span></div>
-    <table class="table table--condensed">
-    {% for event in events limit: 6, offset: 1 %}
+  <div class="w--full">
+    <div><span class="label label--small lg:label--base label--underline">Upcoming Dates</span></div>
+    <table class="table table--condensed" data-table-limit="true" data-table-max-height="auto" table-overflow-counter="true">
+    {% for event in events offset: 1 %}
       <tr>
-        <td colspan="4"><span class="title title--small">{{ event.short_title }}</span></td>
-      </tr>
-      <tr>
-        <td><span class="label label--small">{{ event.datetime_local | date: '%-I:%M %p %A, %B %-d, %Y' }}</span></td>
-        <td><span class="label label--small">{{ event.venue.display_location }}</span></td>
+        <td class="py--1 lg:py--2">
+          <div><span class="title title--small lg:title--base" data--clamp="2">{{ event.short_title }}</span></div>
+          <div class="flex flex--row ">
+            <div class="stretch"><span class="label label--small lg:label--base">{{ event.datetime_local | date: '%-I:%M %p %a, %B %-d, %Y' }}</span></div>
+            <div><span class="label label--small lg:label--base">{{ event.venue.display_location }}</span></div>
+          </div>
+        </td>
       </tr>
     {% endfor %}
     </table>
@@ -28,8 +30,8 @@
 
   {% else %}
     <div class="text--center py--10">
-      <div><span class="title title--large clamp--none">No Scheduled Events</span></div>
-      <div><span class="description">Query: {{ trmnl.plugin_settings.custom_fields_values.seatgeek_query }}</span></div>
+      <div><span class="title title--large lg:title--xlarge">No Scheduled Events</span></div>
+      <div><span class="description description--base lg:description--large">Query: {{ trmnl.plugin_settings.custom_fields_values.seatgeek_query }}</span></div>
     </div>
   {% endif %}
 </div>

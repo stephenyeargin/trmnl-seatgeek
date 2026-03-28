@@ -2,10 +2,10 @@
   {% if events.size > 0 %}
   <div class="">
     <div class="text--center">
-      <div><span class="title title--medium my--3 clamp--2 clamp--nicely">{{ events.first.short_title }}</span></div>
-      <div><span class="label">{{ events.first.datetime_local | date: '%-I:%M %p %A, %B %-d, %Y' }}</span></div>
-      <div><span class="description">{{ events.first.venue.name }}</span></div>
-      <div><span class="description">{{ events.first.venue.display_location }}</span></div>
+      <div class="my--3 lg:my--6"><span class="title title--base lg:title--large" data-clamp="3">{{ events.first.short_title }}</span></div>
+      <div><span class="label label--base lg:label--large">{{ events.first.datetime_local | date: '%-I:%M %p %A, %B %-d, %Y' }}</span></div>
+      <div><span class="description description--base lg:description--large">{{ events.first.venue.name }}</span></div>
+      <div><span class="description description--base lg:description--large">{{ events.first.venue.display_location }}</span></div>
     </div>
   </div>
 
