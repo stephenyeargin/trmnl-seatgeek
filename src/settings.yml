@@ -4,6 +4,8 @@ no_screen_padding: 'no'
 dark_mode: 'no'
 static_data: ''
 polling_verb: get
+framework_version: 2.3.7
+serverless_language: 
 polling_url: |
   https://api.seatgeek.com/events?q={{ seatgeek_query }}&client_id={{ seatgeek_client_id }}
   https://api.seatgeek.com/events?venue.slug={{ seatgeek_query | replace: ' ', '-' | downcase }}&client_id={{ seatgeek_client_id }}
