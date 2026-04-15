@@ -16,6 +16,7 @@ custom_fields:
 - keyname: author_bio
   name: About This Plugin
   field_type: author_bio
+  category: entertainment
   description: Show upcoming events for your favorite artist or team.
   github_url: https://github.com/stephenyeargin/trmnl-seatgeek
   learn_more_url: https://seatgeek.com
