@@ -1,7 +1,7 @@
 <div class="layout layout--stretch gap--large lg:gap--xlarge">
   {% if events.size > 0 %}
   <div class="w--full">
-    <img src="{{ events.first.performers.first.image }}" class="image image-dither h--72 lg:h--96" style="filter: grayscale(1) contrast(1.2) brightness(1.1) saturate(0.8);" />
+    <img src="{{ events.first.performers.first.image }}" class="image image-dither image--cover w--full aspect--16/9" style="filter: grayscale(1) contrast(1.2) brightness(1.1) saturate(0.8);" />
     <div class="text--center">
       <div class="py--3 lg:py--6"><span class="title title--base lg:title--large lg:my--6" data-clamp="2" data-clamp-lg="0">{{ events.first.short_title }}</span></div>
       <div><span class="label">{{ events.first.datetime_local | date: '%-I:%M %p %A, %B %-d, %Y' }}</span></div>
@@ -12,7 +12,7 @@
   {% if events.size > 1 %}
   <div class="w--full">
     <div><span class="label label--small lg:label--base label--underline">Upcoming Dates</span></div>
-    <table class="table table--condensed" data-table-limit="true" data-table-max-height="auto" table-overflow-counter="true">
+    <table class="table table--condensed" data-table-limit="true" data-table-max-height="auto" table-overflow-counter="false">
     {% for event in events offset: 1 %}
       <tr>
         <td class="py--1 lg:py--2">

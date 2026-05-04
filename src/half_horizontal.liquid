@@ -9,9 +9,9 @@
     </div>
   </div>
   {% if events.size > 1 %}
-  <div class="w--full h--full">
+  <div class="w--full h--[98cqh]">
     <div><span class="label label--small lg:label--base label--underline">Upcoming Dates</span></div>
-    <table class="table table--condensed" data-table-limit="true" data-table-max-height="auto">
+    <table class="table table--condensed" data-table-limit="true" data-table-max-height="auto" table-overflow-counter="false">
     {% for event in events offset: 1 %}
       <tr>
         <td class="py--2 lg:py--3">
