@@ -7,9 +7,12 @@ polling_verb: get
 framework_version: latest
 serverless_language: 
 polling_url: |
+  {% if seatgeek_mode == 'performer' %}
   https://api.seatgeek.com/events?q={{ seatgeek_query }}&client_id={{ seatgeek_client_id }}
+  {% else %}
   https://api.seatgeek.com/events?venue.slug={{ seatgeek_query | replace: ' ', '-' | downcase }}&client_id={{ seatgeek_client_id }}
-polling_headers: 'Authorization: Basic {{ seatgeek_client_id }}'
+  {% endif %}
+polling_headers: ''
 polling_body: 
 id: 120686
 custom_fields:

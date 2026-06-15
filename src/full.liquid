@@ -1,7 +1,7 @@
 <div class="layout layout--stretch gap--large lg:gap--xlarge">
   {% if events.size > 0 %}
   <div class="w--full">
-    <img src="{{ events.first.performers.first.image }}" class="image image-dither image--cover w--full aspect--16/9" style="filter: grayscale(1) contrast(1.2) brightness(1.1) saturate(0.8);" />
+    <img src="{{ events.first.performers.first.image }}" class="image image-dither image--cover w--full aspect--16/9" />
     <div class="text--center">
       <div class="py--3 lg:py--6"><span class="title title--base lg:title--large lg:my--6" data-clamp="2" data-clamp-lg="0">{{ events.first.short_title }}</span></div>
       <div><span class="label">{{ events.first.datetime_local | date: '%-I:%M %p %A, %B %-d, %Y' }}</span></div>
@@ -11,19 +11,25 @@
   </div>
   {% if events.size > 1 %}
   <div class="w--full">
-    <div><span class="label label--small lg:label--base label--underline">Upcoming Dates</span></div>
     <table class="table table--condensed" data-table-limit="true" data-table-max-height="auto" table-overflow-counter="false">
-    {% for event in events offset: 1 %}
+      <thead>
+        <tr>
+        <th><span class="label label--small lg:label--base">Upcoming Dates</span></th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for event in events offset: 1 %}
       <tr>
         <td class="py--1 lg:py--2">
-          <div><span class="title title--small lg:title--base" data--clamp="2">{{ event.short_title }}</span></div>
+          <div><span class="title title--small lg:title--base" data-clamp="2">{{ event.short_title }}</span></div>
           <div class="flex flex--row ">
             <div class="stretch"><span class="label label--small lg:label--base">{{ event.datetime_local | date: '%-I:%M %p %a, %B %-d, %Y' }}</span></div>
             <div><span class="label label--small lg:label--base">{{ event.venue.display_location }}</span></div>
           </div>
         </td>
       </tr>
-    {% endfor %}
+      {% endfor %}
+      </tbody>
     </table>
   </div>
   {% endif %}
@@ -37,7 +43,7 @@
 </div>
 
 <div class="title_bar">
-  <img class="image image-stroke" src="data:image/svg+xml;base64,{{ seatgeek_logo | base64_encode }}" />
+  <img class="image image-stroke dark:bg--black" src="data:image/svg+xml;base64,{{ seatgeek_logo | base64_encode }}" />
   <span class="title">Upcoming Events</span>
   <span class="instance">{{ trmnl.plugin_settings.custom_fields_values.seatgeek_query }}</span>
 </div>

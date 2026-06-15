@@ -24,12 +24,15 @@ function transform(input) {
   };
 
   const slimResponse = (response) => {
-    const events = toArray(response?.events).slice(0, MAX_EVENTS).map(slimEvent);
-    return { events };
+    const now = new Date();
+    const events = toArray(response?.events)
+      .filter((e) => e?.datetime_local && new Date(e.datetime_local) >= now)
+      .slice(0, MAX_EVENTS)
+      .map(slimEvent);
+    return events;
   };
 
   return {
-    IDX_0: slimResponse(input?.IDX_0),
-    IDX_1: slimResponse(input?.IDX_1),
+    events: slimResponse(input),
   };
 }
