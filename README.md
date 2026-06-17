@@ -1,6 +1,6 @@
 # SeatGeek for TRMNL
 
-[![Build and Deploy](https://github.com/stephenyeargin/trmnl-seatgeek/actions/workflows/build.yml/badge.svg)](https://github.com/stephenyeargin/trmnl-seatgeek/actions/workflows/build.yml)
+[![Build and Deploy](https://github.com/stephenyeargin/trmnl-seatgeek/actions/workflows/build.yml/badge.svg)](https://github.com/stephenyeargin/trmnl-seatgeek/actions/workflows/build.yml) [![TRMNL Recipe Connections](https://trmnl-badges.gohk.xyz/badge/connections?recipe=120686)](https://trmnl.com/recipes/120686)
 
 ![promo](assets/promo.png)
 
