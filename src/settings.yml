@@ -20,7 +20,7 @@ custom_fields:
   name: About This Plugin
   field_type: author_bio
   category: entertainment
-  description: Show upcoming events for your favorite artist or team.
+  description: Show upcoming events for your favorite artist, team, or venue.
   github_url: https://github.com/stephenyeargin/trmnl-seatgeek
   learn_more_url: https://seatgeek.com
   email_address: stephen@yearg.in
@@ -43,4 +43,5 @@ custom_fields:
   - Artist or Team: performer
   - Venue: venue
 name: SeatGeek
+description: Show upcoming events for your favorite artist, team, or venue
 refresh_interval: 1440
