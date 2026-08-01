@@ -43,5 +43,5 @@ custom_fields:
   - Artist or Team: performer
   - Venue: venue
 name: SeatGeek
-description: Show upcoming events for your favorite artist, team, or venue
+description: Events for your favorite artists
 refresh_interval: 1440
